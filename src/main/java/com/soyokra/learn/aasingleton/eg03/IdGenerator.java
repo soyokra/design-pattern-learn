@@ -1,8 +1,8 @@
-package aasingleton.eg04;
+package com.soyokra.learn.aasingleton.eg03;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-// 静态内部类
+// 双重检测
 public class IdGenerator {
     private AtomicLong id = new AtomicLong (0);
 
@@ -10,12 +10,15 @@ public class IdGenerator {
 
     private IdGenerator() {}
 
-    private static class SingletonHolder {
-        private static final IdGenerator instance = new IdGenerator();
-    }
-
     public static IdGenerator getInstance() {
-        return SingletonHolder.instance;
+        if(instance == null) {
+            synchronized (IdGenerator.class) {
+                if (instance == null) {
+                    instance = new IdGenerator();
+                }
+            }
+        }
+        return instance;
     }
 
     public long getId() {

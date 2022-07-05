@@ -1,4 +1,4 @@
-package aasingleton.eg05;
+package com.soyokra.learn.aasingleton.eg05;
 
 import java.util.concurrent.atomic.AtomicLong;
 

@@ -1,16 +1,19 @@
-package aasingleton.eg01;
+package com.soyokra.learn.aasingleton.eg02;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-// 饿汉式
+// 双重检测
 public class IdGenerator {
     private AtomicLong id = new AtomicLong (0);
 
-    private static final IdGenerator instance = new IdGenerator();
+    private static IdGenerator instance;
 
     private IdGenerator() {}
 
-    public static IdGenerator getInstance() {
+    public static synchronized IdGenerator getInstance() {
+        if (instance == null) {
+            instance = new IdGenerator();
+        }
         return instance;
     }
 

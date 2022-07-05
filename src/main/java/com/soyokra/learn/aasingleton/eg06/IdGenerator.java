@@ -1,4 +1,4 @@
-package aasingleton.eg06;
+package com.soyokra.learn.aasingleton.eg06;
 
 
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package aasingleton;
+package com.soyokra.learn.aasingleton;
 
 import java.io.File;
 import java.io.FileWriter;
